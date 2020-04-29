@@ -1,6 +1,10 @@
 body{
+    display: flex;
+    flex-wrap: wrap;
     background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: auto;
+  text-align: center;
 }
 
 #app{
@@ -10,7 +14,6 @@ body{
     height:100vh;
     background: #f23557;
     color: #f0d43a;
-    justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -19,7 +22,8 @@ body{
 }
 
 .holder{
-
+    display: grid;
+    justify-content: center;
 }
 
 .entry{
@@ -52,13 +56,14 @@ body{
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label{
     display:block;
+
     font-size: 27px;
 }
 
 input{
     display:block;
     height: 60px;
-    width: 320px;
+    width: 320x;
     background:#22b2da;
     color: #f0d43a;
     font-size: 20px;
@@ -67,7 +72,7 @@ input{
 }
 
 button{
-    width: 400px;
+    width: 100%;
     height: 100px;
     background: #3b4a6b;
     color: #f0d43a;
