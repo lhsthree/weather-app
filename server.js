@@ -23,7 +23,6 @@ app.use(express.static('website'));
 app.get('/all', getInfo);
 function getInfo (req, res) {
     res.send(projectData);
-    console.log(yo yo yo)
 };
 //post route
 app.post('/add', sendInfo)
