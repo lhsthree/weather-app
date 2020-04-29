@@ -21,13 +21,13 @@ app.use(express.static('website'));
 
 //get route
 app.get('/all', getInfo);
-const getInfo = (req, res) =>{
+function getInfo (req, res) {
     res.send(projectData);
     console.log(yo yo yo)
 };
 //post route
 app.post('/add', sendInfo)
-const sendInfo = (req, res) =>{
+function sendInfo (req, res) {
     projectData.temp = req.body.temp;
     projectData.date = req.body.date;
     projectData.content = req.body.content;
