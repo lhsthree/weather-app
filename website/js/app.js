@@ -28,8 +28,8 @@ const performAction =  (e) =>{
    {
        postData('/add', {
            temp: data.main.temp
-          /*  date: newDate, 
-          content: feelings, */
+           date: newDate, 
+          content: feelings,
        }).then(updateUI);
    })
 }
