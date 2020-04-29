@@ -19,12 +19,19 @@ app.use(cors());
 app.use(express.static('website'));
 
 
-//callback
-app.get('/', getInfo);
-
+//get route
+app.get('/all', getInfo);
 const getInfo = (req, res) =>{
     res.send(projectData);
-}
+};
+//post route
+app.post('/add', sendInfo)
+const sendInfo = (req, res) =>{
+    projectData.temp = req.body.temp;
+    projectData.date = req.body.date;
+    projectData.content = req.body.content;
+    res.send(projectData)
+};
 
 //set up server
 const port = 3000
