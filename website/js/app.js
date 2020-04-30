@@ -19,13 +19,26 @@ const apiKey = "24e1111bc260485a37b54b9d9ca8f6e6"
 
 
 
+const performAction = (e) => {
+  const zip = document.getElementById("zip").value;
+  const feelings = document.getElementById("feelings").value;
+  getWeather(`${baseURL}${zip},us&units=imperial&APPID=${apiKey}`)
+    .then(function (data) {
+      postData('/add', {
+        temp: data.main.temp,
+        date: newDate,
+        content: feelings,
+      }).then(updateUI);
+    })
+}
+
 
 
 
 //post data
 
 const postData = async (url = "", data = {}) => {
-  const response = await fetch('url', {
+  const response = await fetch(url, {
     method: "POST",
     credentials: "same-origin",
     headers: {
@@ -64,24 +77,10 @@ const updateUI = async () => {
         temp.innerHTML = allData.temp;
         content.innerHTML = allData.content;
     }catch (error){
-        console.log("error", error);
+        console.log("error",error);
     }
 }
 
-
-const performAction =  (e) =>{
-    const zip = document.getElementById("zip").value;
-const feelings = document.getElementById("feelings").value;
-   getWeather(`${baseURL}${zip},us&units=imperial&APPID=${apiKey}`)
-   .then(function(data)
-   {
-      postData('/add', {
-           temp: data.main.temp,
-           date: newDate, 
-          content: feelings,
-       }).then(updateUI);
-   })
-}
 
 //use event listener to add function
 btn.addEventListener('click', performAction);
