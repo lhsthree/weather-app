@@ -18,26 +18,14 @@ const baseURL ="http://api.openweathermap.org/data/2.5/weather?zip="
 const apiKey = "24e1111bc260485a37b54b9d9ca8f6e6"
 
 
-S
 
-const performAction =  (e) =>{
-    const zip = document.getElementById("zip").value;
-const feelings = document.getElementById("feelings").value;
-   getWeather(`${baseURL}${zip},us&units=imperial&APPID=${apiKey}`)
-   .then(function(data)
-   {
-       postData('/add', {
-           temp: data.main.temp
-           date: newDate, 
-          content: data.feelings,
-       }).then(updateUI);
-   })
-}
+
+
 
 //post data
 
 const postData = async (url = "", data = {}) => {
-  const response = await fetch(url, {
+  const response = await fetch('url', {
     method: "POST",
     credentials: "same-origin",
     headers: {
@@ -57,7 +45,7 @@ const postData = async (url = "", data = {}) => {
 
 //get webAPI info
 const getWeather = async (url)=> {
-    const respons = await fetch(url);
+    const response = await fetch(url);
     try {
         const data = await response.json();
         return data;
@@ -78,6 +66,21 @@ const updateUI = async () => {
     }catch (error){
         console.log("error", error);
     }
+}
+
+
+const performAction =  (e) =>{
+    const zip = document.getElementById("zip").value;
+const feelings = document.getElementById("feelings").value;
+   getWeather(`${baseURL}${zip},us&units=imperial&APPID=${apiKey}`)
+   .then(function(data)
+   {
+      postData('/add', {
+           temp: data.main.temp,
+           date: newDate, 
+          content: feelings,
+       }).then(updateUI);
+   })
 }
 
 //use event listener to add function

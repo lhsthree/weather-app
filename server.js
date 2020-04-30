@@ -34,6 +34,6 @@ function sendInfo (req, res) {
 }
 
 //set up server
-const port = 3000
+const port = 5500
 
 const server = app.listen(port, () => {console.log(`running on localhost: ${port}`)});
