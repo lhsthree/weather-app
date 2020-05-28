@@ -7,33 +7,46 @@ http://api.openweathermap.org/data/2.5/weather?zip=60618,us&units=imperial&APPID
 
 
 const btn = document.getElementById("generate");
-const date = document.getElementById("date");
-const content = document.getElementById("content")
-// Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
 
-//API key and base URL
-const baseURL ="http://api.openweathermap.org/data/2.5/weather?zip="
-const apiKey = "24e1111bc260485a37b54b9d9ca8f6e6"
+// Create a new date instance dynamically with JS
+
+
+//Geonames API key and base URL
+const geonameBaseURL ="http://api.geonames.org/searchJSON?q="
+const username = "lhsthree"
+
+//Weatherbit API key and base URL
+const weatherbitBaseURL = "https://api.weatherbit.io/v2.0/normals?"
+const weatherbitApiKey = "35b55aa236754a7fbddabff894e22d91"
 
 
 
 const performAction = (e) => {
   const zip = document.getElementById("zip").value;
   const feelings = document.getElementById("feelings").value;
-  getWeather(`${baseURL}${zip},us&units=imperial&APPID=${apiKey}`)
+  getCoordinates(`${geonameBaseURL}${zip}&maxRows=10&username=${username}`)
     .then(function (data) {
       postData('/add', {
-        temp: data.main.temp,
-        date: newDate,
-        content: feelings,
-      }).then(updateUI);
+        lat: data.geonames[0].lat,
+        city: data.geonames[0].name,
+        lng: data.geonames[0].lng,
+      })
     })
 }
 
 
-
+const performAction2 = (e) => {
+  const startDate = document.getElementById("start-date").value;
+  const endDate = document.getElementById("end-date").value;
+  getWeather(`${weatherbitBaseURL}lat=${lat}&lon=${lng}&start_day=
+    ${startDate}&end_day=${endDate}&tp=daily&key=${weatherbitApiKey}`)
+    .then(function (data) {
+      postData('/add', {
+        weatherbit: data
+      
+      }).then(updateUI);
+    })
+}
 
 //post data
 
@@ -57,6 +70,16 @@ const postData = async (url = "", data = {}) => {
 };
 
 //get webAPI info
+const getCoordinates = async (url)=> {
+    const response = await fetch(url);
+    try {
+        const data = await response.json();
+        return data;
+    }catch (error){
+        console.log("error", error);
+    }
+};
+
 const getWeather = async (url)=> {
     const response = await fetch(url);
     try {
@@ -73,9 +96,8 @@ const updateUI = async () => {
     const request = await fetch('/all');
     try {
         const allData = await request.json();
-        date.innerHTML = allData.date;
-        temp.innerHTML = allData.temp;
-        content.innerHTML = allData.content;
+        city.innerHTML = allData.city;
+        content: feelings;
     }catch (error){
         console.log("error",error);
     }
@@ -83,4 +105,4 @@ const updateUI = async () => {
 
 
 //use event listener to add function
-btn.addEventListener('click', performAction);
+btn.addEventListener('click', performAction, performAction2);

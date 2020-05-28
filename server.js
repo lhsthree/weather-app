@@ -20,15 +20,15 @@ app.use(express.static('website'));
 
 
 //get route
-app.get('/all', getInfo);
-function getInfo (req, res) {
-    res.send(projectData);
-};
+app.get('/all', (req, res) => {res.send(projectData)
+})
 //post route
 app.post('/add', sendInfo)
 function sendInfo (req, res) {
-    projectData.temp = req.body.temp;
-    projectData.date = req.body.date;
+    projectData.lat = req.body.lat;
+    projectData.lng = req.body.lng;
+    projectData.city = req.body.city;
+    projectData.weatherbit= req.body.weatherbit
     projectData.content = req.body.content;
     res.send(projectData)
 }
