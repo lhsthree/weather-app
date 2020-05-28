@@ -23,28 +23,26 @@ const weatherbitApiKey = "35b55aa236754a7fbddabff894e22d91"
 
 const performAction = (e) => {
   const zip = document.getElementById("zip").value;
-  const feelings = document.getElementById("feelings").value;
   getCoordinates(`${geonameBaseURL}${zip}&maxRows=10&username=${username}`)
     .then(function (data) {
       postData('/add', {
-        lat: data.geonames[0].lat,
+       lat: data.geonames[0].lat,
         city: data.geonames[0].name,
         lng: data.geonames[0].lng,
-      })
+      }).then(updateUI);
     })
 }
 
 
 const performAction2 = (e) => {
   const startDate = document.getElementById("start-date").value;
-  const endDate = document.getElementById("end-date").value;
-  getWeather(`${weatherbitBaseURL}lat=${lat}&lon=${lng}&start_day=
-    ${startDate}&end_day=${endDate}&tp=daily&key=${weatherbitApiKey}`)
+  getWeather(`${weatherbitBaseURL}lat=${allData.lat}&lon=${lng}&start_day=
+    ${startDate}&tp=daily&key=${weatherbitApiKey}`)
     .then(function (data) {
       postData('/add', {
         weatherbit: data
       
-      }).then(updateUI);
+      })
     })
 }
 
@@ -97,7 +95,8 @@ const updateUI = async () => {
     try {
         const allData = await request.json();
         city.innerHTML = allData.city;
-        content: feelings;
+        lat: allData.lat;
+        
     }catch (error){
         console.log("error",error);
     }

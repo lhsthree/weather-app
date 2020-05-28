@@ -30,6 +30,7 @@ function sendInfo (req, res) {
     projectData.city = req.body.city;
     projectData.weatherbit= req.body.weatherbit
     projectData.content = req.body.content;
+   
     res.send(projectData)
 }
 
