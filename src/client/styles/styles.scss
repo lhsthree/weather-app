@@ -5,6 +5,7 @@ $button-color: #e63ff2;
 body{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     background: rgb(251,63,199);
 background: linear-gradient(90deg, rgba(251,63,199,1) 0%, rgba(102,37,25,1) 100%);
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -12,19 +13,6 @@ background: linear-gradient(90deg, rgba(251,63,199,1) 0%, rgba(102,37,25,1) 100%
   text-align: center;
 }
 
-#app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    
-    color: #f0d43a;
-    grid-gap: 1em;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    width: 100%;
-    height: 100%;
-}
 
 .holder{
     display: grid;
@@ -33,22 +21,19 @@ background: linear-gradient(90deg, rgba(251,63,199,1) 0%, rgba(102,37,25,1) 100%
     margin: auto;
 }
 
+
 .entry{
-    background: rgba(59, 74, 107, .4);
+    background: rgba(50, 109, 168, .4);
 }
+
 .headline{
-    font-size: 8em;
+    font-size: 3em;
 }
 
-#entryHolder{
-
+#picture{
+    z-index: -2
 }
 
-
-img{
-    max-width: 300px
-
-}
 
 div{
     p{
@@ -61,7 +46,6 @@ div{
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label{
     display:block;
-
     font-size: 27px;
 }
 
@@ -69,7 +53,7 @@ input{
     display:block;
     height: 60px;
     width: 320x;
-    background:#22b2da;
+    background:#326da8;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -77,18 +61,29 @@ input{
 }
 
 button{
-    width: 100%;
     height: 100px;
-    background: $button-color;
+     background: $button-color;
     color: $button-text;
     font-size: 50px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
-    border-radius: 33%;
+    border-radius: 45%;
+    transition-duration: 0.4s;
+    margin: 20px;
+    width:300px;
+&:hover{
+    cursor: pointer;
+    color: #326da8 ;
 }
-h1{
-    font-size: 36px;
+
+    &#generate:hover{
+        background-color: #32a852;
+    }
+    &#delete:hover{
+        background-color: #a83238;
+    }
+
 }
 
 textarea{
@@ -97,8 +92,17 @@ textarea{
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
+
+
+
+.title {
+    font-size: 1.5em;
+}
 /* Reset style for HTML element on active to have no border*/
-input:focus,
+input:focus,{
+    background:#326da8;
+    outline:none;
+}
 select:focus,
 textarea:focus,
 button:focus {

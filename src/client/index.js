@@ -23,7 +23,6 @@ const pixabayApiKey = "16676243-3df4002abbfb0069dd98426e3"
 const weatherbitBaseURL = "https://api.weatherbit.io/v2.0/normals?"
 const weatherbitApiKey = "35b55aa236754a7fbddabff894e22d91"
 
-const dlt = document.getElementById("delete");
 
 
 const performAction = (e) => {
