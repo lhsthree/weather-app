@@ -5,7 +5,8 @@ $button-color: #e63ff2;
 body{
     display: flex;
     flex-wrap: wrap;
-    
+    background: rgb(251,63,199);
+background: linear-gradient(90deg, rgba(251,63,199,1) 0%, rgba(102,37,25,1) 100%);
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: auto;
   text-align: center;
@@ -16,8 +17,7 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 58%, rgba(0,212,255,1) 100%);
+    
     color: #f0d43a;
     grid-gap: 1em;
     font-size: 20px;
