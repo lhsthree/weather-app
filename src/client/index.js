@@ -9,6 +9,7 @@ import { getWeather, updateUI } from "./js/weatherbit";
 
 
 const btn = document.getElementById("generate");
+const dlt = document.getElementById("delete");
 
 //Geonames API key and base URL
 const geonameBaseURL ="http://api.geonames.org/searchJSON?q="
@@ -57,6 +58,14 @@ const performAction = (e) => {
     })
 }
 
+const deleteTrip = (e) => {
+city.innerHTML = "";
+picture.innerHTML = "";
+max_temp.innerHTML = "";
+min_temp.innerHTML = "";
+
+}
+
 //post data
 
 const postData = async (url = "", data = {}) => {
@@ -79,13 +88,12 @@ const postData = async (url = "", data = {}) => {
 };
 
 
-
-
 //get project data
 
 
 //use event listener to add function
 btn.addEventListener('click', performAction);
+dlt.addEventListener('click', deleteTrip);
 
 export {
   getWeather,
@@ -93,5 +101,5 @@ export {
   getCoordinates,
   updateImage,
   updateUI,
-  updateCityName
+  updateCityName,
 }

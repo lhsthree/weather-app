@@ -21,7 +21,8 @@ const updateImage = async () => {
     }
 }
 
+
 module.exports = {
     getImage,
-    updateImage
+    updateImage,
 };
