@@ -27,7 +27,10 @@ const weatherbitApiKey = "35b55aa236754a7fbddabff894e22d91"
 
 const performAction = (e) => {
   const zip = document.getElementById("zip").value;
-  const startDate = document.getElementById("start-date").value;
+  let startDate = document.getElementById("start-date").value;
+startDate = startDate.slice(5);
+console.log(startDate);
+}
   getCoordinates(`${geonameBaseURL}${zip}&maxRows=10&username=${username}`)
     .then(function (data) {
       postData('/add', {
