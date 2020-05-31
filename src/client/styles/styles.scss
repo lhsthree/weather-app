@@ -2,19 +2,19 @@ $button-text: #6cf542;
 
 $button-color: #e63ff2;
 
-body{
+body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: rgb(251,63,199);
-background: linear-gradient(90deg, rgba(251,63,199,1) 0%, rgba(102,37,25,1) 100%);
+    background: rgb(251, 63, 199);
+    background: linear-gradient(90deg, rgba(251, 63, 199, 1) 0%, rgba(102, 37, 25, 1) 100%);
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: auto;
-  text-align: center;
+    text-align: center;
 }
 
 
-.holder{
+.holder {
     display: grid;
     justify-content: center;
     max-width: 800px;
@@ -22,47 +22,47 @@ background: linear-gradient(90deg, rgba(251,63,199,1) 0%, rgba(102,37,25,1) 100%
 }
 
 
-.entry{
+.entry {
     background: rgba(50, 109, 168, .4);
 }
 
-.headline{
+.headline {
     font-size: 3em;
 }
 
-#picture{
+#picture {
     z-index: -2
 }
 
 
-div{
-    p{
-         font-style: oblique;
-    
+div {
+    p {
+        font-style: oblique;
+
     }
 }
-    
+
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
+label {
+    display: block;
     font-size: 27px;
 }
 
-input{
-    display:block;
+input {
+    display: block;
     height: 60px;
     width: 320x;
-    background:#326da8;
+    background: #326da8;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
 }
 
-button{
+button {
     height: 100px;
-     background: $button-color;
+    background: $button-color;
     color: $button-text;
     font-size: 50px;
     font-family: 'Oswald', sans-serif;
@@ -71,23 +71,25 @@ button{
     border-radius: 45%;
     transition-duration: 0.4s;
     margin: 20px;
-    width:300px;
-&:hover{
-    cursor: pointer;
-    color: #326da8 ;
-}
+    width: 300px;
 
-    &#generate:hover{
+    &:hover {
+        cursor: pointer;
+        color: #326da8;
+    }
+
+    &#generate:hover {
         background-color: #32a852;
     }
-    &#delete:hover{
+
+    &#delete:hover {
         background-color: #a83238;
     }
 
 }
 
-textarea{
-    background:#22b2da;
+textarea {
+    background: #22b2da;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -98,31 +100,38 @@ textarea{
 .title {
     font-size: 1.5em;
 }
+
 /* Reset style for HTML element on active to have no border*/
-input:focus,{
-    background:#326da8;
-    outline:none;
+input:focus,
+    {
+    background: #326da8;
+    outline: none;
 }
+
 select:focus,
 textarea:focus,
 button:focus {
     outline: none;
 }
+
 /* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: #f0d43a;
     font-family: 'Oswald', sans-serif;
 
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #f0d43a;
     font-family: 'Oswald', sans-serif;
 
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #f0d43a;
     font-family: 'Oswald', sans-serif;
 
-} 
+}
