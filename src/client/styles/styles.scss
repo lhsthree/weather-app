@@ -52,7 +52,7 @@ img{
 
 div{
     p{
-         text-decoration: underline;
+         font-style: oblique;
     
     }
 }
@@ -81,10 +81,11 @@ button{
     height: 100px;
     background: $button-color;
     color: $button-text;
-    font-size: 26px;
+    font-size: 50px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
+    border-radius: 33%;
 }
 h1{
     font-size: 36px;
