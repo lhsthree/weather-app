@@ -23,14 +23,13 @@ const pixabayApiKey = "16676243-3df4002abbfb0069dd98426e3"
 const weatherbitBaseURL = "https://api.weatherbit.io/v2.0/normals?"
 const weatherbitApiKey = "35b55aa236754a7fbddabff894e22d91"
 
+const dlt = document.getElementById("delete");
 
 
 const performAction = (e) => {
   const zip = document.getElementById("zip").value;
   let startDate = document.getElementById("start-date").value;
 startDate = startDate.slice(5);
-console.log(startDate);
-}
   getCoordinates(`${geonameBaseURL}${zip}&maxRows=10&username=${username}`)
     .then(function (data) {
       postData('/add', {
@@ -61,13 +60,7 @@ console.log(startDate);
     })
 }
 
-const deleteTrip = (e) => {
-city.innerHTML = "";
-picture.innerHTML = "";
-max_temp.innerHTML = "";
-min_temp.innerHTML = "";
 
-}
 
 //post data
 
@@ -90,13 +83,22 @@ const postData = async (url = "", data = {}) => {
   }
 };
 
+const deleteInput = (e) => {
+  city.innerHTML = "";
+  max_temp.innerHTML = "";
+  min_temp.innerHTML = "";
+  picture.innerHTML = "";
+}
+
 
 //get project data
 
 
 //use event listener to add function
 btn.addEventListener('click', performAction);
-dlt.addEventListener('click', deleteTrip);
+dlt.addEventListener('click', deleteInput);
+
+
 
 export {
   getWeather,
