@@ -1,4 +1,4 @@
- //empty JS object
+  //empty JS object
 let projectData = {};
 
 const express = require('express');
@@ -16,8 +16,11 @@ const cors = require('cors');
 app.use(cors());
 
 //initialize project folder
-app.use(express.static('website'));
+app.use(express.static('./dist'));
 
+app.get('/', function (req, res) {
+    res.sendFile('./dist/index.html')
+})
 
 //get route
 app.get('/all', (req, res) => {res.send(projectData)
@@ -28,13 +31,14 @@ function sendInfo (req, res) {
     projectData.lat = req.body.lat;
     projectData.lng = req.body.lng;
     projectData.city = req.body.city;
-    projectData.weatherbit= req.body.weatherbit
-    projectData.content = req.body.content;
+    projectData.max_temp= req.body.max_temp;
+    projectData.min_temp= req.body.min_temp;
+    projectData.picture = req.body.picture;
    
     res.send(projectData)
 }
 
 //set up server
-const port = 5500
+const port = 5503
 
 const server = app.listen(port, () => {console.log(`running on localhost: ${port}`)});
