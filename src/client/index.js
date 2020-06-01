@@ -2,6 +2,7 @@ import './styles/styles.scss'
 import { getCoordinates, updateCityName } from "./js/geoname";
 import { getImage, updateImage } from "./js/pixabay";
 import { getWeather, updateUI } from "./js/weatherbit";
+import { getDays} from "./js/getDays";
 
 
 /* Global Variables */
@@ -87,6 +88,8 @@ const deleteInput = (e) => {
     max_temp.innerHTML = "";
     min_temp.innerHTML = "";
     picture.innerHTML = "";
+    days_til.innerHTML = "";
+    days_on.innerHTML = "";
 }
 
 
@@ -94,7 +97,10 @@ const deleteInput = (e) => {
 
 
 //use event listener to add function
-btn.addEventListener('click', performAction);
+btn.addEventListener('click', () => {
+    performAction();
+    getDays();
+});
 dlt.addEventListener('click', deleteInput);
 
 
@@ -106,4 +112,5 @@ export {
     updateImage,
     updateUI,
     updateCityName,
+    getDays
 }

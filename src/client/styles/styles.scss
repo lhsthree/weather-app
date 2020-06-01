@@ -8,7 +8,6 @@ body {
     justify-content: center;
     background: rgb(251, 63, 199);
     background: linear-gradient(90deg, rgba(251, 63, 199, 1) 0%, rgba(102, 37, 25, 1) 100%);
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: auto;
     text-align: center;
 }
@@ -30,15 +29,11 @@ body {
     font-size: 3em;
 }
 
-#picture {
-    z-index: -2
-}
-
 
 div {
     p {
         font-style: oblique;
-
+        font-family: 'Playfair Display', serif;
     }
 }
 
@@ -56,7 +51,7 @@ input {
     background: #326da8;
     color: #f0d43a;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Architects Daughter', cursive;
     border: none;
 }
 
@@ -65,7 +60,7 @@ button {
     background: $button-color;
     color: $button-text;
     font-size: 50px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
     border-radius: 45%;
@@ -88,11 +83,16 @@ button {
 
 }
 
+img{
+    max-width: 800px;
+    padding: 20px;
+}
+
 textarea {
     background: #22b2da;
     color: #f0d43a;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Architects Daughter', cursive;
 }
 
 
@@ -118,20 +118,23 @@ button:focus {
 ::placeholder {
     /* Firefox, Chrome, Opera */
     color: #f0d43a;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Architects Daughter', cursive;
+
 
 }
 
 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: #f0d43a;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Architects Daughter', cursive;
+
 
 }
 
 ::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #f0d43a;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Architects Daughter', cursive;
+
 
 }

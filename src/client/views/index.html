@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Travel Application</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,32 +20,39 @@
             <label for="zip">Enter Zipcode here</label>
             <input type="text" id="zip" placeholder="enter zip code here">
         </div>
-        <div class="holder date" <div class="holder start-date">
-            <label for="zip">Enter Start Date</label>
-            <input type="date" id="start-date">
-        </div>
-        <div class="buttons">
-            <button id="generate" type="submit"> Generate </button>
-            <button id="delete" type="delete">Delete</button>
-        </div>
-        <div class="holder entry">
-            <div class="title">Your Travel Info:</div>
-            <div id="entryHolder">
-                <div id="city"></div>
-                <div id="max_temp"></div>
-                <div id="min_temp"></div>
-                <div id="picture"></div>
+        <div class="holder date">
+            <div class="holder start-date">
+                <label for="zip">Enter Start Date</label>
+                <input type="date" id="start-date">
+            </div>
+            <div class="holder end-date">
+                <label for="zip">Enter End Date</label>
+                <input type="date" id="end-date">
+            </div>
+            <div class="buttons">
+                <button id="generate" type="submit"> Let's Go!! </button>
+                <button id="delete" type="delete">Let's Not</button>
+            </div>
+            <div class="holder entry">
+                <div class="title">Your Travel Info:</div>
+                <div id="entryHolder">
+                    <div id="city"></div>
+                    <div id="max_temp"></div>
+                    <div id="min_temp"></div>
+                    <div id="days_til"> </div>
+                    <div id="days_on"> </div>
+                    <div id="picture"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-    if ('serviceWorker' in navigator) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js');
-        });
-    }
-    </script>
+        <script>
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+        </script>
 </body>
 
 </html>
